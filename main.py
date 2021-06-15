@@ -5,9 +5,6 @@ inky_display = InkyWHAT("red")
 inky_display.set_border(inky_display.WHITE)
 
 from PIL import Image, ImageFont, ImageDraw
-from font_source_serif_pro import SourceSerifProSemibold
-from font_source_sans_pro import SourceSansProSemibold
-
 
 # This function will take a quote as a string, a width to fit
 # it into, and a font (one that's been loaded) and then reflow
@@ -59,7 +56,7 @@ font = ImageFont.truetype("Cambria.ttf", font_size)
 
 padding = 150
 max_width = w - padding
-max_height = h - padding - author_font.getsize("ABCD ")[1]
+max_height = h - padding - font.getsize("ABCD ")[1]
 
 essay_data = []
 with open("data/all_essays.txt", "r") as f :
