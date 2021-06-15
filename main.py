@@ -18,6 +18,7 @@ def reflow_quote(quote, width, font):
     words = quote.split(" ")
     reflowed = '"'
     line_length = 0
+    num_lines = 0
 
     for i in range(len(words)):
         word = words[i] + " "
@@ -29,6 +30,10 @@ def reflow_quote(quote, width, font):
         else:
             line_length = word_length
             reflowed = reflowed[:-1] + "\n  " + word
+            num_lines += 1
+
+            if num_lines == 4 :
+                return reflowed.rstrip() + '"'
 
     reflowed = reflowed.rstrip() + '"'
 
