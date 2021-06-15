@@ -49,8 +49,7 @@ h = inky_display.HEIGHT
 
 # Create a new canvas to draw on
 
-img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
-draw = ImageDraw.Draw(img)
+
 
 # Load the fonts
 
@@ -76,6 +75,8 @@ with open("data/output_corrected.txt", "r") as f :
             ai_data.append(sentence)
         
 while True :
+    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    draw = ImageDraw.Draw(img)
     choice = random.randint(0,1)
 
     essay_x = (w - max_width) / 2
@@ -105,7 +106,8 @@ while True :
     time.sleep(5)
     
     print(f"Revealing that {choice} is the AI")
-    draw.clear()
+    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    draw = ImageDraw.Draw(img)
     draw.rectangle((padding / 4, padding / 4, w - (padding / 4), ai_y + 160 - (padding / 4)), fill=inky_display.RED)
     draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
     draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
