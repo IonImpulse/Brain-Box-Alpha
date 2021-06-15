@@ -80,7 +80,8 @@ while True :
     ai_y = 160
 
     if choice == 1 :
-        essay_y, ai_y = ai_y, essay_y
+        essay_y = 160
+        ai_y = 20
 
     essay = random.choice(essay_data)
     ai = random.choice(ai_data)
@@ -99,3 +100,7 @@ while True :
     time.sleep(5)
     
     draw.rectangle((padding / 4, padding / 4, w - (padding / 4), ai_y - (padding / 4)), fill=inky_display.RED)
+    draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
+    draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
+
+    time.sleep(5)
