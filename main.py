@@ -1,6 +1,7 @@
 from inky import InkyWHAT
 import time
 import random
+import pathlib
 inky_display = InkyWHAT("red")
 inky_display.set_border(inky_display.WHITE)
 
@@ -52,7 +53,7 @@ h = inky_display.HEIGHT * 3
 
 font_size = 70
 
-font = ImageFont.truetype("Cambria.ttf", font_size)
+font = ImageFont.truetype("/home/pi/Brain-Box-Alpha/Cambria.ttf", font_size)
 
 padding = 150
 max_width = w - padding
@@ -75,7 +76,7 @@ with open("data/output_corrected.txt", "r") as f :
 while True :
     img = Image.new("P", (inky_display.WIDTH * 3, inky_display.HEIGHT * 3))
     draw = ImageDraw.Draw(img)
-    draw.fontmode = "1"
+    draw.fontmode = "L"
     choice = random.randint(0,1)
 
     essay_x = (w - max_width) / 2
