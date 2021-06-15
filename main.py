@@ -60,14 +60,14 @@ max_width = w - padding
 max_height = h - padding - font.getsize("ABCD ")[1]
 
 essay_data = []
-with open("data/all_essays.txt", "r") as f :
+with open("/home/pi/Brain-Box-Alpha/data/all_essays.txt", "r") as f :
     for line in f.readlines() :
         for sentence in line.split(".") :
             if len(sentence.strip()) > 5 :
                 essay_data.append(sentence.strip())
 
 ai_data = []
-with open("data/output_corrected.txt", "r") as f :
+with open("/home/pi/Brain-Box-Alpha/data/output_corrected.txt", "r") as f :
     for line in f.readlines() :
         for sentence in line.split(".") :
             if len(sentence.strip()) > 5 :
