@@ -111,7 +111,7 @@ while True :
     print(f"Revealing that {choice} is the AI")
     img = Image.new("P", (inky_display.WIDTH*3, inky_display.HEIGHT*3))
     draw = ImageDraw.Draw(img)
-    draw.rectangle((padding / 4, ai_y, w - (padding / 4), ai_y + 450 - (padding / 4)), fill=inky_display.RED)
+    draw.rectangle((padding / 4, ai_y, w - (padding / 4), ai_y + 430 - (padding / 4)), fill=inky_display.RED)
     draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
     draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
     img_resized = img.resize((inky_display.WIDTH,inky_display.HEIGHT), Image.ANTIALIAS)
