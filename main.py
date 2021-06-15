@@ -66,15 +66,15 @@ essay_data = []
 with open("data/all_essays.txt", "r") as f :
     for line in f.readlines() :
         for sentence in line.split(".") :
-            if len(sentence.trim()) > 5 :
-                essay_data.append(sentence.trim())
+            if len(sentence.strip()) > 5 :
+                essay_data.append(sentence.strip())
 
 ai_data = []
 with open("data/output_corrected.txt", "r") as f :
     for line in f.readlines() :
         for sentence in line.split(".") :
-            if len(sentence.trim()) > 5 :
-                ai_data.append(sentence.trim())
+            if len(sentence.strip()) > 5 :
+                ai_data.append(sentence.strip())
         
 while True :
     img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
