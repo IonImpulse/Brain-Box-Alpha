@@ -44,8 +44,8 @@ def reflow_quote(quote, width, font):
 inky_display = InkyWHAT("black")
 inky_display.set_border(inky_display.WHITE)
 
-w = inky_display.WIDTH
-h = inky_display.HEIGHT
+w = inky_display.WIDTH * 3
+h = inky_display.HEIGHT * 3
 
 # Create a new canvas to draw on
 
@@ -53,12 +53,12 @@ h = inky_display.HEIGHT
 
 # Load the fonts
 
-font_size = 20
+font_size = 60
 
 author_font = ImageFont.truetype(SourceSerifProSemibold, font_size)
 quote_font = ImageFont.truetype(SourceSansProSemibold, font_size)
 
-padding = 49
+padding = 150
 max_width = w - padding
 max_height = h - padding - author_font.getsize("ABCD ")[1]
 
@@ -77,19 +77,19 @@ with open("data/output_corrected.txt", "r") as f :
                 ai_data.append(sentence.strip())
         
 while True :
-    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    img = Image.new("P", (inky_display.WIDTH * 3, inky_display.HEIGHT * 3))
     draw = ImageDraw.Draw(img)
     choice = random.randint(0,1)
 
     essay_x = (w - max_width) / 2
-    essay_y = 20
+    essay_y = 60
 
     ai_x = (w - max_width) / 2
-    ai_y = 160
+    ai_y = 460
 
     if choice == 1 :
-        essay_y = 160
-        ai_y = 20
+        essay_y = 460
+        ai_y = 60
 
     essay = random.choice(essay_data)
     ai = random.choice(ai_data)
@@ -102,17 +102,19 @@ while True :
     reflowed_ai = reflow_quote(ai.capitalize(), max_width, quote_font)
     draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
 
-    inky_display.set_image(img.rotate(0, expand=True))
+    img_resized = img.resize((inky_display.WIDTH,inky_display.HEIGHT), Image.ANTIALIAS)
+    inky_display.set_image(img_resized.rotate(0, expand=True))
     inky_display.show()
 
     time.sleep(5)
     
     print(f"Revealing that {choice} is the AI")
-    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    img = Image.new("P", (inky_display.WIDTH*3, inky_display.HEIGHT*3))
     draw = ImageDraw.Draw(img)
-    draw.rectangle((padding / 4, ai_y, w - (padding / 4), ai_y + 150 - (padding / 4)), fill=inky_display.RED)
+    draw.rectangle((padding / 4, ai_y, w - (padding / 4), ai_y + 450 - (padding / 4)), fill=inky_display.RED)
     draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
     draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
-    inky_display.set_image(img.rotate(0, expand=True))
+    img_resized = img.resize((inky_display.WIDTH,inky_display.HEIGHT), Image.ANTIALIAS)
+    inky_display.set_image(img_resized.rotate(0, expand=True))
     inky_display.show()
     time.sleep(5)
