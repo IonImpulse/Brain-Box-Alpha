@@ -38,7 +38,7 @@ def reflow_quote(quote, width, font):
 # Set up the correct display and scaling factors
 inky_display = InkyWHAT("black")
 inky_display.set_border(inky_display.WHITE)
-# inky_display.set_rotation(180)
+inky_display.set_rotation(0)
 
 w = inky_display.WIDTH
 h = inky_display.HEIGHT
@@ -87,7 +87,7 @@ while True :
     ai = random.choice(ai_data)
 
     print(f"Essay choice: {essay}\nAI choice: {ai}\nAI is {choice}")
-    
+
     reflowed_essay = reflow_quote(essay, max_width, quote_font)
     draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
 
