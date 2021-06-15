@@ -5,9 +5,8 @@ inky_display = InkyWHAT("red")
 inky_display.set_border(inky_display.WHITE)
 
 from PIL import Image, ImageFont, ImageDraw
-
-from font_fredoka_one import FredokaOne
-font = ImageFont.truetype(FredokaOne, 36)
+from font_source_serif_pro import SourceSerifProSemibold
+from font_source_sans_pro import SourceSansProSemibold
 
 
 # This function will take a quote as a string, a width to fit
