@@ -79,6 +79,7 @@ with open("data/output_corrected.txt", "r") as f :
 while True :
     img = Image.new("P", (inky_display.WIDTH * 3, inky_display.HEIGHT * 3))
     draw = ImageDraw.Draw(img)
+    draw.fontmode = "1"
     choice = random.randint(0,1)
 
     essay_x = (w - max_width) / 2
@@ -111,6 +112,7 @@ while True :
     print(f"Revealing that {choice} is the AI")
     img = Image.new("P", (inky_display.WIDTH*3, inky_display.HEIGHT*3))
     draw = ImageDraw.Draw(img)
+    draw.fontmode = "1"
     draw.rectangle((padding / 4, ai_y, w - (padding / 4), ai_y + 430 - (padding / 4)), fill=inky_display.RED)
     draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
     draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
