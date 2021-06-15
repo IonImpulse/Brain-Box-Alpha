@@ -83,11 +83,15 @@ while True :
     if choice == 1 :
         essay_y, ai_y = ai_y, essay_y
 
-    reflowed_essay = reflow_quote(random.choice(essay_data), max_width, quote_font)
+    essay = random.choice(essay_data)
+    ai = random.choice(ai_data)
+
+    print(f"Essay choice: {essay}\nAI choice: {ai}\nAI is {choice}")
+    
+    reflowed_essay = reflow_quote(essay, max_width, quote_font)
     draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
 
-
-    reflowed_ai = reflow_quote(random.choice(ai_data), max_width, quote_font)
+    reflowed_ai = reflow_quote(ai, max_width, quote_font)
     draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
 
     inky_display.set_image(img.rotate(270, expand=True))
