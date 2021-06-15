@@ -104,10 +104,11 @@ while True :
 
     time.sleep(5)
     
-    print("Revealing that {choice} is the AI")
-    
-    draw.rectangle((padding / 4, padding / 4, w - (padding / 4), ai_y - (padding / 4)), fill=inky_display.RED)
+    print(f"Revealing that {choice} is the AI")
+    draw.clear()
+    draw.rectangle((padding / 4, padding / 4, w - (padding / 4), ai_y + 160 - (padding / 4)), fill=inky_display.RED)
     draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
     draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
-
+    inky_display.set_image(img.rotate(0, expand=True))
+    inky_display.show()
     time.sleep(5)
