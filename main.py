@@ -38,7 +38,6 @@ def reflow_quote(quote, width, font):
 # Set up the correct display and scaling factors
 inky_display = InkyWHAT("black")
 inky_display.set_border(inky_display.WHITE)
-inky_display.set_rotation(0)
 
 w = inky_display.WIDTH
 h = inky_display.HEIGHT
@@ -94,7 +93,7 @@ while True :
     reflowed_ai = reflow_quote(ai, max_width, quote_font)
     draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
 
-    inky_display.set_image(img.rotate(270, expand=True))
+    inky_display.set_image(img.rotate(0, expand=True))
     inky_display.show()
 
     time.sleep(5)
