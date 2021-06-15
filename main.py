@@ -50,7 +50,7 @@ h = inky_display.HEIGHT * 3
 
 # Load the fonts
 
-font_size = 60
+font_size = 80
 
 font = ImageFont.truetype("Cambria.ttf", font_size)
 
