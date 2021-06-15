@@ -66,14 +66,14 @@ essay_data = []
 with open("data/all_essays.txt", "r") as f :
     for line in f.readlines() :
         for sentence in line.split(".") :
-            if sentence.len() > 5 :
+            if len(sentence.trim()) > 5 :
                 essay_data.append(sentence.trim())
 
 ai_data = []
 with open("data/output_corrected.txt", "r") as f :
     for line in f.readlines() :
         for sentence in line.split(".") :
-            if sentence.len() > 5 :
+            if len(sentence.trim()) > 5 :
                 ai_data.append(sentence.trim())
         
 while True :
