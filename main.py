@@ -55,8 +55,7 @@ h = inky_display.HEIGHT * 3
 
 font_size = 60
 
-author_font = ImageFont.truetype(SourceSerifProSemibold, font_size)
-quote_font = ImageFont.truetype(SourceSansProSemibold, font_size)
+author_font = ImageFont.truetype("Cambria.ttf", font_size)
 
 padding = 150
 max_width = w - padding
