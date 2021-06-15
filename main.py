@@ -55,7 +55,7 @@ h = inky_display.HEIGHT * 3
 
 font_size = 60
 
-author_font = ImageFont.truetype("Cambria.ttf", font_size)
+font = ImageFont.truetype("Cambria.ttf", font_size)
 
 padding = 150
 max_width = w - padding
@@ -96,11 +96,11 @@ while True :
 
     print(f"Essay choice: {essay}\nAI choice: {ai}\nAI is {choice}")
 
-    reflowed_essay = reflow_quote(essay.capitalize(), max_width, quote_font)
-    draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
+    reflowed_essay = reflow_quote(essay.capitalize(), max_width, font)
+    draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=font, align="left")
 
-    reflowed_ai = reflow_quote(ai.capitalize(), max_width, quote_font)
-    draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
+    reflowed_ai = reflow_quote(ai.capitalize(), max_width, font)
+    draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=font, align="left")
 
     img_resized = img.resize((inky_display.WIDTH,inky_display.HEIGHT), Image.ANTIALIAS)
     inky_display.set_image(img_resized.rotate(0, expand=True))
@@ -113,8 +113,8 @@ while True :
     draw = ImageDraw.Draw(img)
     draw.fontmode = "1"
     draw.rectangle((padding / 4, ai_y, w - (padding / 4), ai_y + 430 - (padding / 4)), fill=inky_display.RED)
-    draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=quote_font, align="left")
-    draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=quote_font, align="left")
+    draw.multiline_text((essay_x, essay_y), reflowed_essay, fill=inky_display.BLACK, font=font, align="left")
+    draw.multiline_text((ai_x, ai_y), reflowed_ai, fill=inky_display.BLACK, font=font, align="left")
     img_resized = img.resize((inky_display.WIDTH,inky_display.HEIGHT), Image.ANTIALIAS)
     inky_display.set_image(img_resized.rotate(0, expand=True))
     inky_display.show()
