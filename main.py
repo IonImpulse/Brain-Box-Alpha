@@ -53,7 +53,7 @@ h = inky_display.HEIGHT
 
 # Load the fonts
 
-font_size = 22
+font_size = 20
 
 author_font = ImageFont.truetype(SourceSerifProSemibold, font_size)
 quote_font = ImageFont.truetype(SourceSansProSemibold, font_size)
